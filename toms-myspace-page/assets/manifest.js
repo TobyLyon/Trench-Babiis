@@ -1,0 +1,137 @@
+window.TB_ASSET_MANIFEST = {
+  generatedAt: '2025-12-23',
+  categories: [
+    {
+      name: 'backgrounds',
+      items: [
+        { src: 'assets/BACKGROUNDS/BBW.png', name: 'BBW' },
+        { src: 'assets/BACKGROUNDS/CODEIN.png', name: 'CODEIN' },
+        { src: 'assets/BACKGROUNDS/CREAMY.png', name: 'CREAMY' },
+        { src: 'assets/BACKGROUNDS/HOODBOB.png', name: 'HOODBOB' },
+        { src: 'assets/BACKGROUNDS/MOON-SHOT.png', name: 'MOON SHOT' },
+        { src: 'assets/BACKGROUNDS/PPP-LOAN.png', name: 'PPP LOAN' },
+        { src: 'assets/BACKGROUNDS/SOLANA.png', name: 'SOLANA' },
+        { src: 'assets/BACKGROUNDS/SPRITE.png', name: 'SPRITE' },
+        { src: 'assets/BACKGROUNDS/SUNSET.png', name: 'SUNSET' },
+        { src: 'assets/BACKGROUNDS/WAVY.png', name: 'WAVY' }
+      ]
+    },
+    {
+      name: 'body',
+      items: [
+        { src: 'assets/BODY/GOLD.png', name: 'GOLD' },
+        { src: 'assets/BODY/ORANGE.png', name: 'ORANGE' },
+        { src: 'assets/BODY/PINK.png', name: 'PINK' },
+        { src: 'assets/BODY/PURP.png', name: 'PURP' },
+        { src: 'assets/BODY/RED.png', name: 'RED' },
+        { src: 'assets/BODY/SOLANA.png', name: 'SOLANA' },
+        { src: 'assets/BODY/TEAL.png', name: 'TEAL' }
+      ]
+    },
+    {
+      name: 'headwear',
+      items: [
+        { src: 'assets/HEADWEAR/BLUE-BANDANA.png', name: 'BLUE BANDANA' },
+        { src: 'assets/HEADWEAR/BLUE-SILKY.png', name: 'BLUE SILKY' },
+        { src: 'assets/HEADWEAR/CHICAGO.png', name: 'CHICAGO' },
+        { src: 'assets/HEADWEAR/LA.png', name: 'LA' },
+        { src: 'assets/HEADWEAR/NY.png', name: 'NY' },
+        { src: 'assets/HEADWEAR/PURPLE-BANDANA.png', name: 'PURPLE BANDANA' },
+        { src: 'assets/HEADWEAR/RED%20SILKY.png', name: 'RED SILKY' },
+        { src: 'assets/HEADWEAR/RED-BANDANA.png', name: 'RED BANDANA' }
+      ]
+    },
+    {
+      name: 'shades',
+      items: [
+        { src: 'assets/SHADES/BIG-BODY.png', name: 'BIG BODY' },
+        { src: 'assets/SHADES/CLOUT-GOGGLES.png', name: 'CLOUT GOGGLES' },
+        { src: 'assets/SHADES/G-MA.png', name: 'G MA' },
+        { src: 'assets/SHADES/NONE.png', name: 'NONE' },
+        { src: 'assets/SHADES/STUNNA.png', name: 'STUNNA' }
+      ]
+    },
+    {
+      name: 'earrings',
+      items: [
+        { src: 'assets/EARRINGS/CIRCLE.png', name: 'CIRCLE' },
+        { src: 'assets/EARRINGS/NONE.png', name: 'NONE' },
+        { src: 'assets/EARRINGS/SQUARE.png', name: 'SQUARE' }
+      ]
+    },
+    {
+      name: 'tattoos',
+      items: [
+        { src: 'assets/TATTOOS/ISSA-KNIFE.png', name: 'ISSA KNIFE' },
+        { src: 'assets/TATTOOS/NONE.png', name: 'NONE' },
+        { src: 'assets/TATTOOS/PRAISE-JESUS.png', name: 'PRAISE JESUS' },
+        { src: 'assets/TATTOOS/SKULL-N-ROSES.png', name: 'SKULL N ROSES' },
+        { src: 'assets/TATTOOS/TEAR-DROP.png', name: 'TEAR DROP' },
+        { src: 'assets/TATTOOS/THUGLYFE.png', name: 'THUGLYFE' }
+      ]
+    },
+    {
+      name: 'chain',
+      items: [
+        { src: 'assets/CHAIN/CUBAN-LINK.png', name: 'CUBAN LINK' },
+        { src: 'assets/CHAIN/NONE.png', name: 'NONE' },
+        { src: 'assets/CHAIN/SKINNY-CHAIN.png', name: 'SKINNY CHAIN' },
+        { src: 'assets/CHAIN/THICC-CHAIN.png', name: 'THICC CHAIN' },
+        { src: 'assets/CHAIN/THICC-SILVER.png', name: 'THICC SILVER' }
+      ]
+    },
+    {
+      name: 'belt',
+      items: [
+        { src: 'assets/BELT/GUCCI.png', name: 'GUCCI' },
+        { src: 'assets/BELT/LV.png', name: 'LV' },
+        { src: 'assets/BELT/NONE.png', name: 'NONE' }
+      ]
+    },
+    {
+      name: 'left-hand',
+      items: [
+        { src: 'assets/LEFT%20HAND/BLUNT.png', name: 'BLUNT' },
+        { src: 'assets/LEFT%20HAND/CASAMIGOS.png', name: 'CASAMIGOS' },
+        { src: 'assets/LEFT%20HAND/COLT-45.png', name: 'COLT 45' },
+        { src: 'assets/LEFT%20HAND/DOUBLE-UP.png', name: 'DOUBLE UP' },
+        { src: 'assets/LEFT%20HAND/HENNY.png', name: 'HENNY' },
+        { src: 'assets/LEFT%20HAND/NONE.png', name: 'NONE' }
+      ]
+    },
+    {
+      name: 'right-hand',
+      items: [
+        { src: 'assets/RIGHT%20HAND/BACKWOODS.png', name: 'BACKWOODS' },
+        { src: 'assets/RIGHT%20HAND/BOOKIES.png', name: 'BOOKIES' },
+        { src: 'assets/RIGHT%20HAND/FANTA.png', name: 'FANTA' },
+        { src: 'assets/RIGHT%20HAND/GOLD-ROLLIE.png', name: 'GOLD ROLLIE' },
+        { src: 'assets/RIGHT%20HAND/NONE.png', name: 'NONE' },
+        { src: 'assets/RIGHT%20HAND/SILVER-ROLLIE.png', name: 'SILVER ROLLIE' }
+      ]
+    },
+    {
+      name: 'flex',
+      items: [
+        { src: 'assets/FLEX/BLACK-AIRFORCE-ACTIVITY.png', name: 'BLACK AIRFORCE ACTIVITY' },
+        { src: 'assets/FLEX/CASINO-CHIPS.png', name: 'CASINO CHIPS' },
+        { src: 'assets/FLEX/COKE-WHITE-FORCES.png', name: 'COKE WHITE FORCES' },
+        { src: 'assets/FLEX/NONE.png', name: 'NONE' },
+        { src: 'assets/FLEX/PLUGG.png', name: 'PLUGG' },
+        { src: 'assets/FLEX/RACKS.png', name: 'RACKS' }
+      ]
+    },
+    {
+      name: 'bonus',
+      items: [
+        { src: 'assets/BONUS/BEATER.png', name: 'BEATER' },
+        { src: 'assets/BONUS/GET-CUCKED.png', name: 'GET CUCKED' },
+        { src: 'assets/BONUS/IMPALA.png', name: 'IMPALA' },
+        { src: 'assets/BONUS/LAMBO.png', name: 'LAMBO' },
+        { src: 'assets/BONUS/NONE.png', name: 'NONE' },
+        { src: 'assets/BONUS/PIMPIN.png', name: 'PIMPIN' },
+        { src: 'assets/BONUS/SRT.png', name: 'SRT' }
+      ]
+    }
+  ]
+};

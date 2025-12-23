@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="icon" type="image/png" href="assets/PROFILE-PIC.png">
+  <link rel="apple-touch-icon" href="assets/PROFILE-PIC.png">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css?v=20251223">
+  <title>Deep-Fried Meme Generator</title>
+</head>
+
+<body class="tb-crt">
+  <div class="tb-blinkies tb-blinkies-top">
+    <div class="tb-marquee tb-marquee-left">
+      <div class="tb-marquee-track">
+        <img src="blinkies/blinkiesCafe-0x.gif" alt="">
+        <img src="blinkies/blinkiesCafe-1F.gif" alt="">
+        <img src="blinkies/blinkiesCafe-MO.gif" alt="">
+        <img src="blinkies/blinkiesCafe-QX.gif" alt="">
+        <img src="blinkies/blinkiesCafe-X5.gif" alt="">
+        <img src="blinkies/blinkiesCafe-ct.gif" alt="">
+        <img src="blinkies/blinkiesCafe-iK.gif" alt="">
+        <img src="blinkies/blinkiesCafe-0x.gif" alt="">
+        <img src="blinkies/blinkiesCafe-1F.gif" alt="">
+        <img src="blinkies/blinkiesCafe-MO.gif" alt="">
+        <img src="blinkies/blinkiesCafe-QX.gif" alt="">
+        <img src="blinkies/blinkiesCafe-X5.gif" alt="">
+        <img src="blinkies/blinkiesCafe-ct.gif" alt="">
+        <img src="blinkies/blinkiesCafe-iK.gif" alt="">
+      </div>
+    </div>
+  </div>
+
+  <div class="master-container">
+    
+    <div class="image" style="position: absolute; left:0px; top:0px; width:882px; height:600px; z-index:-1px; z-index:-1; overflow: hidden;">
+     <img name="love" src="http://cbimg9.com/layouts/08/06/28307aa.png" width="882" height="600" position="absolute" top="0" left="0" border="0">
+    </div>
+
+    <header class="main-header">
+      <nav class="tb-topbar">
+        <div class="tb-topbar-left"><a href="index.html">TRENCHBABII</a></div>
+        <div class="tb-topbar-right">
+          <a class="tb-nav-btn tb-nav-btn-primary" href="deep-fried.html">MEME MAKER</a>
+          <a class="tb-nav-btn tb-nav-btn-primary" href="clean-pfp.html">PFP GENERATOR</a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="page-content-container">
+      <aside class="profile-sidebar">
+        <header>
+          <h1>TrenchBabii</h1>
+        </header>
+
+        <section class="tb-links-box tb-primary-panel tb-primary-panel-socials">
+          <h3><b>SOCIALS:</b></h3>
+          <div class="tb-social-links">
+            <a class="tb-social-link" href="https://x.com/" target="_blank" rel="noopener noreferrer">X / TWITTER</a>
+            <a class="tb-social-link" href="#" target="_blank" rel="noopener noreferrer">TELEGRAM</a>
+            <a class="tb-social-link" href="#" target="_blank" rel="noopener noreferrer">DISCORD</a>
+            <a class="tb-social-link" href="#" target="_blank" rel="noopener noreferrer">WEBSITE</a>
+
+            <div class="tb-contract-row" id="tb-contract">
+              <div class="tb-contract-label"><b>Contract:</b> <span class="tb-contract-value">COMING SOON</span></div>
+              <a class="tb-social-link tb-copy-contract" href="#" data-copy="COMING SOON">CLICK TO COPY</a>
+              <div class="tb-contract-status" aria-live="polite"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="tools">
+          <table class="sidebar-table tb-primary-panel tb-primary-panel-tools">
+            <caption>
+              <h2 class="sidebar-table-h2"><span class="tb-anim-blink">OFFICIAL</span> TOOLS</h2>
+            </caption>
+            <tbody>
+              <tr>
+                <th class="sidebar-table-header" scope="row">GENERATORS</th>
+                <td class="sidebar-table-data">
+                  <a class="tb-button box" href="index.html">Back to Profile</a>
+                  <a class="tb-button box" href="clean-pfp.html">Clean PFP Generator</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </aside>
+
+      <main>
+        <table class="tb-tool-table tb-generator-shell">
+          <tr>
+            <th scope="col">Deep-Fried Meme Generator</th>
+          </tr>
+          <tr>
+            <td>
+              <div class="tb-gen">
+                <div class="tb-gen-top">
+                  <div class="tb-tool-controls tb-gen-controls">
+                    <label>
+                      <b>Upload Base Image (optional):</b>
+                      <input type="file" id="tb-upload" accept="image/*">
+                    </label>
+
+                    <label>
+                      <b>Noise:</b>
+                      <input type="range" id="tb-noise" min="0" max="100" value="35">
+                    </label>
+
+                    <label>
+                      <b>Contrast:</b>
+                      <input type="range" id="tb-contrast" min="-50" max="50" value="20">
+                    </label>
+
+                    <label>
+                      <b>Sharpness:</b>
+                      <input type="range" id="tb-sharp" min="0" max="100" value="35">
+                    </label>
+
+                    <label>
+                      <b>Saturation:</b>
+                      <input type="range" id="tb-sat" min="0" max="200" value="160">
+                    </label>
+
+                    <label>
+                      <b>Compression / Artifacting:</b>
+                      <input type="range" id="tb-crush" min="0" max="100" value="55">
+                    </label>
+                  </div>
+
+                  <div class="tb-gen-preview">
+                    <canvas class="tb-canvas" id="tb-canvas" width="420" height="420"></canvas>
+                  </div>
+                </div>
+
+                <div class="tb-gen-bottom">
+                  <div id="tb-layers"></div>
+
+                  <div id="tb-traits"></div>
+                </div>
+
+                <div class="tb-tool-actions">
+                  <a class="tb-button tb-button-small" href="#" id="tb-apply">APPLY</a>
+                  <a class="tb-button tb-button-small" href="#" id="tb-reset">RESET</a>
+                  <a class="tb-button tb-button-small" href="#" id="tb-delete">DELETE LAYER</a>
+                  <a class="tb-button tb-button-small" href="#" id="tb-down">LAYER DOWN</a>
+                  <a class="tb-button tb-button-small" href="#" id="tb-up">LAYER UP</a>
+                  <a class="tb-button tb-button-small" href="#" id="tb-download">DOWNLOAD</a>
+                </div>
+              </div>
+
+              <p class="music-note"><b>Prev:</b> <a href="clean-pfp.html"><span class="tb-anim-blink">PFP GENERATOR</span></a></p>
+            </td>
+          </tr>
+        </table>
+      </main>
+    </div>
+
+    <footer class="footer tb-banner-footer">
+      <div class="tb-footer-content">
+        <nav class="tb-footer-nav">
+          <a href="index.html">Profile</a>
+          <span class="tb-footer-sep">|</span>
+          <a href="deep-fried.html">Meme Gen</a>
+          <span class="tb-footer-sep">|</span>
+          <a href="clean-pfp.html">PFP Gen</a>
+        </nav>
+
+        <small>©2006-2025 TrenchBabii Tek. All Rights Reserved.</small>
+      </div>
+    </footer>
+  </div>
+
+  <script src="assets/manifest.js?v=2025-12-23"></script>
+  <script src="js/generator-engine.js"></script>
+  <script src="js/deep-fried-tool.js"></script>
+
+  <div class="tb-blinkies tb-blinkies-bottom">
+    <div class="tb-marquee tb-marquee-right">
+      <div class="tb-marquee-track">
+        <img src="blinkies/blinkiesCafe-0x.gif" alt="">
+        <img src="blinkies/blinkiesCafe-1F.gif" alt="">
+        <img src="blinkies/blinkiesCafe-MO.gif" alt="">
+        <img src="blinkies/blinkiesCafe-QX.gif" alt="">
+        <img src="blinkies/blinkiesCafe-X5.gif" alt="">
+        <img src="blinkies/blinkiesCafe-ct.gif" alt="">
+        <img src="blinkies/blinkiesCafe-iK.gif" alt="">
+        <img src="blinkies/blinkiesCafe-0x.gif" alt="">
+        <img src="blinkies/blinkiesCafe-1F.gif" alt="">
+        <img src="blinkies/blinkiesCafe-MO.gif" alt="">
+        <img src="blinkies/blinkiesCafe-QX.gif" alt="">
+        <img src="blinkies/blinkiesCafe-X5.gif" alt="">
+        <img src="blinkies/blinkiesCafe-ct.gif" alt="">
+        <img src="blinkies/blinkiesCafe-iK.gif" alt="">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      function init() {
+        var tracks = document.querySelectorAll('.tb-marquee-track');
+        for (var i = 0; i < tracks.length; i++) {
+          var track = tracks[i];
+          if (track.getAttribute('data-tb-doubled') === '1') continue;
+          var kids = Array.prototype.slice.call(track.children);
+          for (var j = 0; j < kids.length; j++) track.appendChild(kids[j].cloneNode(true));
+          track.setAttribute('data-tb-doubled', '1');
+        }
+      }
+
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+      else init();
+    })();
+  </script>
+
+  <script>
+    (function () {
+      function setStatus(text) {
+        var box = document.getElementById('tb-contract');
+        if (!box) return;
+        var status = box.querySelector('.tb-contract-status');
+        if (!status) return;
+        status.textContent = text;
+      }
+
+      function copyText(text) {
+        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+          return navigator.clipboard.writeText(text);
+        }
+
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand('copy');
+        } finally {
+          document.body.removeChild(ta);
+        }
+        return Promise.resolve();
+      }
+
+      function onClick(e) {
+        var t = e.target;
+        if (!t || !t.classList || !t.classList.contains('tb-copy-contract')) return;
+        e.preventDefault();
+        var value = t.getAttribute('data-copy') || 'COMING SOON';
+
+        setStatus('Copying...');
+        copyText(value)
+          .then(function () {
+            setStatus('Copied: ' + value);
+            setTimeout(function () { setStatus(''); }, 1500);
+          })
+          .catch(function () {
+            setStatus('Copy failed');
+            setTimeout(function () { setStatus(''); }, 1500);
+          });
+      }
+
+      document.addEventListener('click', onClick);
+    })();
+  </script>
+</body>
+
+</html>
