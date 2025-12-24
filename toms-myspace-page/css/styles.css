@@ -593,7 +593,7 @@ Friend Space
 
 .friends p:nth-of-type(1) {
   margin-top: 0;
-  margin-left: 15px;
+  margin-left: 0;
 }
 
 .focus-highlight {
@@ -3176,6 +3176,16 @@ filter: contrast(1.04) saturate(1.04);
   color: var(--tb-yellow);
   text-shadow: 2px 2px 0 #000000;
 }
+
+ body.tb-crt .tb-gen-heading {
+  color: var(--tb-yellow) !important;
+  text-shadow: 2px 2px 0 #000000 !important;
+ }
+
+ body.tb-crt .tb-gen-header .tb-gen-badge {
+  color: var(--tb-yellow) !important;
+  text-shadow: none !important;
+ }
 
 .tb-gen-layout {
   display: flex;
