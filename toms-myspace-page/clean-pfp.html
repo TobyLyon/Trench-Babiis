@@ -9,10 +9,10 @@
   <link rel="apple-touch-icon" href="assets/PROFILE-PIC.png">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/styles.css?v=20251223">
-  <title>Clean PFP Generator</title>
+  <title>TrenchBabiis</title>
 </head>
 
-<body class="tb-crt">
+<body class="tb-crt tb-gen-page tb-gen-pfp">
   <div class="tb-blinkies tb-blinkies-top">
     <div class="tb-marquee tb-marquee-left">
       <div class="tb-marquee-track">
@@ -42,7 +42,7 @@
 
     <header class="main-header">
       <nav class="tb-topbar">
-        <div class="tb-topbar-left"><a href="index.html">TRENCHBABII</a></div>
+        <div class="tb-topbar-left"><a href="index.html"><img src="https://text.glitter-graphics.net/psy/t.gif" border=0><img src="https://text.glitter-graphics.net/psy/r.gif" border=0><img src="https://text.glitter-graphics.net/psy/e.gif" border=0><img src="https://text.glitter-graphics.net/psy/n.gif" border=0><img src="https://text.glitter-graphics.net/psy/c.gif" border=0><img src="https://text.glitter-graphics.net/psy/h.gif" border=0><img src="https://dl3.glitter-graphics.net/empty.gif" width=20 border=0><img src="https://text.glitter-graphics.net/psy/b.gif" border=0><img src="https://text.glitter-graphics.net/psy/a.gif" border=0><img src="https://text.glitter-graphics.net/psy/b.gif" border=0><img src="https://text.glitter-graphics.net/psy/i.gif" border=0><img src="https://text.glitter-graphics.net/psy/i.gif" border=0><img src="https://text.glitter-graphics.net/psy/s.gif" border=0></a></div>
         <div class="tb-topbar-right">
           <a class="tb-nav-btn tb-nav-btn-primary" href="deep-fried.html">MEME MAKER</a>
           <a class="tb-nav-btn tb-nav-btn-primary" href="clean-pfp.html">PFP GENERATOR</a>
@@ -51,87 +51,47 @@
     </header>
 
     <div class="page-content-container">
-      <aside class="profile-sidebar">
-        <header>
-          <h1>TrenchBabii</h1>
-        </header>
+      <main>
+        <div class="tb-generator-shell tb-generator-v2">
+          <header class="tb-gen-header">
+            <h2 class="tb-gen-heading">PFP GENERATOR</h2>
+          </header>
 
-        <section class="tb-links-box tb-primary-panel tb-primary-panel-socials">
-          <h3><b>SOCIALS:</b></h3>
-          <div class="tb-social-links">
-            <a class="tb-social-link" href="https://x.com/" target="_blank" rel="noopener noreferrer">X / TWITTER</a>
-            <a class="tb-social-link" href="#" target="_blank" rel="noopener noreferrer">TELEGRAM</a>
-            <a class="tb-social-link" href="#" target="_blank" rel="noopener noreferrer">DISCORD</a>
-            <a class="tb-social-link" href="#" target="_blank" rel="noopener noreferrer">WEBSITE</a>
+          <div class="tb-gen-layout tb-gen-layout-pfp">
+            <div class="tb-gen-canvas-wrap">
+              <canvas class="tb-canvas" id="tb-canvas" width="500" height="500"></canvas>
+              <div class="tb-canvas-hint">Transparent PNG export</div>
+            </div>
 
-            <div class="tb-contract-row" id="tb-contract">
-              <div class="tb-contract-label"><b>Contract:</b> <span class="tb-contract-value">COMING SOON</span></div>
-              <a class="tb-social-link tb-copy-contract" href="#" data-copy="COMING SOON">CLICK TO COPY</a>
-              <div class="tb-contract-status" aria-live="polite"></div>
+            <div class="tb-gen-sidebar">
+              <div class="tb-control-group">
+                <div class="tb-control-group-header">BASE IMAGE</div>
+                <label class="tb-file-upload">
+                  <span class="tb-file-label">Upload Background (optional)</span>
+                  <input type="file" id="tb-upload" accept="image/*">
+                  <span class="tb-file-btn">CHOOSE FILE</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="tb-gen-traits">
+              <div class="tb-control-group tb-control-group-scroll">
+                <div class="tb-control-group-header">TRAITS</div>
+                <div id="tb-traits" class="tb-traits-grid"></div>
+              </div>
             </div>
           </div>
-        </section>
 
-        <section class="tools">
-          <table class="sidebar-table tb-primary-panel tb-primary-panel-tools">
-            <caption>
-              <h2 class="sidebar-table-h2"><span class="tb-anim-blink">OFFICIAL</span> TOOLS</h2>
-            </caption>
-            <tbody>
-              <tr>
-                <th class="sidebar-table-header" scope="row">GENERATORS</th>
-                <td class="sidebar-table-data">
-                  <a class="tb-button box" href="index.html">Back to Profile</a>
-                  <a class="tb-button box" href="deep-fried.html">Deep-Fried Meme Generator</a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </aside>
+          <div class="tb-gen-actions">
+            <a class="tb-social-link" href="#" id="tb-random">RANDOMIZE</a>
+            <a class="tb-social-link" href="#" id="tb-reset">RESET</a>
+            <a class="tb-social-link" href="#" id="tb-download">DOWNLOAD</a>
+          </div>
 
-      <main>
-        <table class="tb-tool-table tb-generator-shell">
-          <tr>
-            <th scope="col">Clean PFP Generator</th>
-          </tr>
-          <tr>
-            <td>
-              <div class="tb-gen">
-                <div class="tb-gen-top">
-                  <div class="tb-tool-controls tb-gen-controls">
-                    <label>
-                      <b>Upload Base Image (optional):</b>
-                      <input type="file" id="tb-upload" accept="image/*">
-                    </label>
-                  </div>
-
-                  <div class="tb-gen-preview">
-                    <canvas class="tb-canvas" id="tb-canvas" width="420" height="420"></canvas>
-                  </div>
-                </div>
-
-                <div class="tb-gen-bottom">
-                  <div id="tb-layers"></div>
-
-                  <div id="tb-traits"></div>
-                </div>
-
-                <div class="tb-tool-actions">
-                  <a class="tb-button tb-button-small" href="#" id="tb-random">RANDOMIZE</a>
-                  <a class="tb-button tb-button-small" href="#" id="tb-reset">RESET</a>
-                  <a class="tb-button tb-button-small" href="#" id="tb-delete">DELETE LAYER</a>
-                  <a class="tb-button tb-button-small" href="#" id="tb-down">LAYER DOWN</a>
-                  <a class="tb-button tb-button-small" href="#" id="tb-up">LAYER UP</a>
-                  <a class="tb-button tb-button-small" href="#" id="tb-download">DOWNLOAD</a>
-                </div>
-              </div>
-
-              <p class="music-note"><b>Output:</b> square, centered, profile-ready PNG.</p>
-              <p class="music-note"><b>Next:</b> <a href="deep-fried.html"><span class="tb-anim-blink">DEEP-FRIED MEME GENERATOR</span></a></p>
-            </td>
-          </tr>
-        </table>
+          <div class="tb-gen-footer">
+            <a href="deep-fried.html" class="tb-gen-link">MEME GENERATOR →</a>
+          </div>
+        </div>
       </main>
     </div>
 
@@ -145,7 +105,7 @@
           <a href="clean-pfp.html">PFP Gen</a>
         </nav>
 
-        <small>©2006-2025 TrenchBabii Tek. All Rights Reserved.</small>
+        <small>©2006-2025 TrenchBabiis Tek. All Rights Reserved.</small>
       </div>
     </footer>
   </div>
@@ -190,58 +150,6 @@
 
       if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
       else init();
-    })();
-  </script>
-
-  <script>
-    (function () {
-      function setStatus(text) {
-        var box = document.getElementById('tb-contract');
-        if (!box) return;
-        var status = box.querySelector('.tb-contract-status');
-        if (!status) return;
-        status.textContent = text;
-      }
-
-      function copyText(text) {
-        if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
-          return navigator.clipboard.writeText(text);
-        }
-
-        var ta = document.createElement('textarea');
-        ta.value = text;
-        ta.setAttribute('readonly', '');
-        ta.style.position = 'fixed';
-        ta.style.left = '-9999px';
-        document.body.appendChild(ta);
-        ta.select();
-        try {
-          document.execCommand('copy');
-        } finally {
-          document.body.removeChild(ta);
-        }
-        return Promise.resolve();
-      }
-
-      function onClick(e) {
-        var t = e.target;
-        if (!t || !t.classList || !t.classList.contains('tb-copy-contract')) return;
-        e.preventDefault();
-        var value = t.getAttribute('data-copy') || 'COMING SOON';
-
-        setStatus('Copying...');
-        copyText(value)
-          .then(function () {
-            setStatus('Copied: ' + value);
-            setTimeout(function () { setStatus(''); }, 1500);
-          })
-          .catch(function () {
-            setStatus('Copy failed');
-            setTimeout(function () { setStatus(''); }, 1500);
-          });
-      }
-
-      document.addEventListener('click', onClick);
     })();
   </script>
 </body>

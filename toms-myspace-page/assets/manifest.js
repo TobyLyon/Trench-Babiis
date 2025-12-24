@@ -2,7 +2,7 @@ window.TB_ASSET_MANIFEST = {
   generatedAt: '2025-12-23',
   categories: [
     {
-      name: 'backgrounds',
+      name: 'background',
       items: [
         { src: 'assets/BACKGROUNDS/BBW.png', name: 'BBW' },
         { src: 'assets/BACKGROUNDS/CODEIN.png', name: 'CODEIN' },
@@ -122,15 +122,14 @@ window.TB_ASSET_MANIFEST = {
       ]
     },
     {
-      name: 'bonus',
+      name: 'car',
       items: [
-        { src: 'assets/BONUS/BEATER.png', name: 'BEATER' },
-        { src: 'assets/BONUS/GET-CUCKED.png', name: 'GET CUCKED' },
-        { src: 'assets/BONUS/IMPALA.png', name: 'IMPALA' },
-        { src: 'assets/BONUS/LAMBO.png', name: 'LAMBO' },
-        { src: 'assets/BONUS/NONE.png', name: 'NONE' },
-        { src: 'assets/BONUS/PIMPIN.png', name: 'PIMPIN' },
-        { src: 'assets/BONUS/SRT.png', name: 'SRT' }
+        { src: 'assets/CAR/BEATER.png', name: 'BEATER' },
+        { src: 'assets/CAR/IMPALA.png', name: 'IMPALA' },
+        { src: 'assets/CAR/LAMBO.png', name: 'LAMBO' },
+        { src: 'assets/CAR/NONE.png', name: 'NONE' },
+        { src: 'assets/CAR/PIMPIN.png', name: 'PIMPIN' },
+        { src: 'assets/CAR/SRT.png', name: 'SRT' }
       ]
     }
   ]

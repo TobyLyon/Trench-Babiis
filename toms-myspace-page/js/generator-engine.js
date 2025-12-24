@@ -82,6 +82,19 @@
 
     this.postProcess = null;
     this.maskCircle = false;
+    this.transparentBackground = false;
+
+    this.transformsEnabled = (this.options.transformsEnabled !== false);
+    this.fitScaleFactor = (typeof this.options.fitScaleFactor === 'number') ? this.options.fitScaleFactor : 0.8;
+
+    this.layerOrder = Array.isArray(this.options.layerOrder) ? this.options.layerOrder.slice() : null;
+    this._layerOrderMap = null;
+    if (this.layerOrder && this.layerOrder.length) {
+      this._layerOrderMap = {};
+      for (var oi = 0; oi < this.layerOrder.length; oi++) {
+        this._layerOrderMap[String(this.layerOrder[oi])] = oi;
+      }
+    }
 
     if (!this.canvas || !this.canvas.getContext) {
       return;
@@ -102,6 +115,47 @@
     this._loop();
     this._loadManifest();
   }
+
+  TBGeneratorEngine.prototype._categoryOrderIndex = function (category) {
+    if (!this._layerOrderMap || !category) return 9999;
+    var k = String(category);
+    if (this._layerOrderMap.hasOwnProperty(k)) return this._layerOrderMap[k];
+    return 9999;
+  };
+
+  TBGeneratorEngine.prototype._sortLayersIfNeeded = function () {
+    if (!this._layerOrderMap || !this.layers || this.layers.length < 2) return;
+
+    var selectedId = null;
+    if (this.selectedIndex >= 0 && this.layers[this.selectedIndex]) {
+      selectedId = this.layers[this.selectedIndex].id;
+    }
+
+    var self = this;
+    this.layers.sort(function (a, b) {
+      var ai = self._categoryOrderIndex(a && a.category);
+      var bi = self._categoryOrderIndex(b && b.category);
+      if (ai !== bi) return ai - bi;
+      var aid = a && typeof a.id === 'number' ? a.id : 0;
+      var bid = b && typeof b.id === 'number' ? b.id : 0;
+      return aid - bid;
+    });
+
+    if (selectedId !== null) {
+      for (var i = 0; i < this.layers.length; i++) {
+        if (this.layers[i] && this.layers[i].id === selectedId) {
+          this.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  };
+
+  TBGeneratorEngine.prototype.setTransformsEnabled = function (enabled) {
+    this.transformsEnabled = !!enabled;
+    if (!this.transformsEnabled) this._drag = null;
+    this.requestRender();
+  };
 
   TBGeneratorEngine.prototype._setTraitActive = function (category, src) {
     if (!this.traitsRoot || !category) return;
@@ -141,6 +195,11 @@
 
   TBGeneratorEngine.prototype.setMaskCircle = function (enabled) {
     this.maskCircle = !!enabled;
+    this.requestRender();
+  };
+
+  TBGeneratorEngine.prototype.setTransparentBackground = function (enabled) {
+    this.transparentBackground = !!enabled;
     this.requestRender();
   };
 
@@ -205,7 +264,7 @@
     }
 
     var a = document.createElement('a');
-    a.download = filename || 'trenchbabii.png';
+    a.download = filename || 'trenchbabiis.png';
     a.href = href;
     document.body.appendChild(a);
     a.click();
@@ -248,6 +307,15 @@
     }
 
     var cats = this.manifest.categories;
+    if (this._layerOrderMap && cats && cats.length) {
+      var self = this;
+      cats = cats.slice().sort(function (a, b) {
+        var ai = self._categoryOrderIndex(a && a.name);
+        var bi = self._categoryOrderIndex(b && b.name);
+        if (ai !== bi) return ai - bi;
+        return 0;
+      });
+    }
     var i;
     for (i = 0; i < cats.length; i++) {
       (function (cat) {
@@ -409,7 +477,7 @@
     if (maxDim > 0) {
       scale = Math.min(cw / img.width, ch / img.height);
     }
-    scale = scale * 0.8;
+    scale = scale * this.fitScaleFactor;
 
     var layer = makeLayer({
       id: this._nextId++,
@@ -435,6 +503,8 @@
       this.selectedIndex = this.layers.length - 1;
     }
 
+    this._sortLayersIfNeeded();
+
     if (!this.selectedTraits) this.selectedTraits = {};
     if (src) this.selectedTraits[category] = src;
 
@@ -450,8 +520,12 @@
     var cw = this.canvas.width;
     var ch = this.canvas.height;
 
-    this.bctx.fillStyle = this.backgroundColor;
-    this.bctx.fillRect(0, 0, cw, ch);
+    // Clear canvas - use transparent if enabled, otherwise fill with background color
+    this.bctx.clearRect(0, 0, cw, ch);
+    if (!this.transparentBackground) {
+      this.bctx.fillStyle = this.backgroundColor;
+      this.bctx.fillRect(0, 0, cw, ch);
+    }
 
     for (var i = 0; i < this.layers.length; i++) {
       if (this.layers[i] && this.layers[i].locked) continue;
@@ -493,7 +567,7 @@
 
     this.ctx.drawImage(this.buffer, 0, 0);
 
-    if (!force && this.selectedIndex >= 0 && this.layers[this.selectedIndex]) {
+    if (!force && this.transformsEnabled && this.selectedIndex >= 0 && this.layers[this.selectedIndex]) {
       this._drawHandles(this.ctx, this.layers[this.selectedIndex]);
     }
   };
@@ -621,6 +695,21 @@
     this.canvas.onmousedown = function (e) {
       var p = getMousePos(self.canvas, e);
 
+      if (!self.transformsEnabled) {
+        for (var i0 = self.layers.length - 1; i0 >= 0; i0--) {
+          if (self._hitTestLayer(self.layers[i0], p)) {
+            self.selectedIndex = i0;
+            self.requestRender();
+            self._renderLayersUI();
+            return;
+          }
+        }
+        self.selectedIndex = -1;
+        self.requestRender();
+        self._renderLayersUI();
+        return;
+      }
+
       if (self.selectedIndex >= 0 && self.layers[self.selectedIndex]) {
         var sel = self.layers[self.selectedIndex];
         var h = self._hitTestHandle(sel, p);
@@ -678,6 +767,7 @@
     };
 
     this.canvas.onmousemove = function (e) {
+      if (!self.transformsEnabled) return;
       if (!self._drag) return;
 
       var p = getMousePos(self.canvas, e);
@@ -710,6 +800,7 @@
     };
 
     window.onmouseup = function () {
+      if (!self.transformsEnabled) return;
       if (!self._drag) return;
       self._drag = null;
       self.requestRender();

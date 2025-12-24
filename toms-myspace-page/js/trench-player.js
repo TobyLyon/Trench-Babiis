@@ -22,7 +22,7 @@
     if (p && typeof p.catch === 'function') {
       p.catch(function () {
         if (nowPlaying) {
-          nowPlaying.innerHTML = 'TrenchBabii - Audio file missing (put MP3 in /audio)';
+          nowPlaying.innerHTML = 'TrenchBabiis - Audio file missing (put MP3 in /audio)';
         }
       });
     }
@@ -30,7 +30,7 @@
 
   function setNowPlaying(title) {
     if (!nowPlaying) return;
-    nowPlaying.innerHTML = title || 'TrenchBabii - (no track loaded)';
+    nowPlaying.innerHTML = title || 'TrenchBabiis - (no track loaded)';
   }
 
   function loadTrackFromEl(el) {

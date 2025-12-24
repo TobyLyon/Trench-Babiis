@@ -6,9 +6,6 @@
   var upload = byId('tb-upload');
   var random = byId('tb-random');
   var reset = byId('tb-reset');
-  var del = byId('tb-delete');
-  var up = byId('tb-up');
-  var down = byId('tb-down');
   var download = byId('tb-download');
   var canvas = byId('tb-canvas');
 
@@ -16,11 +13,27 @@
   var engine = new window.TBGeneratorEngine({
     canvasId: 'tb-canvas',
     traitsRootId: 'tb-traits',
-    layersRootId: 'tb-layers'
+    transformsEnabled: false,
+    fitScaleFactor: 1,
+    layerOrder: [
+      'background',
+      'car',
+      'body',
+      'belt',
+      'tattoos',
+      'chain',
+      'earrings',
+      'right-hand',
+      'left-hand',
+      'shades',
+      'flex',
+      'headwear'
+    ]
   });
 
   engine.setPostProcess(null);
   engine.setMaskCircle(false);
+  engine.setTransparentBackground(true);
 
   function resetAll() {
     if (upload) upload.value = '';
@@ -37,7 +50,7 @@
       reader.onload = function (e) {
         var img = new Image();
         img.onload = function () {
-          engine.setImageLayer('upload', img, 'Uploaded Base');
+          engine.setImageLayer('background', img, 'Uploaded Background');
           engine.requestRender();
           upload.value = '';
         };
@@ -75,34 +88,50 @@
     };
   }
 
-  if (del) {
-    del.onclick = function (e) {
-      if (e && e.preventDefault) e.preventDefault();
-      engine.deleteSelected();
-      return false;
-    };
-  }
-
-  if (up) {
-    up.onclick = function (e) {
-      if (e && e.preventDefault) e.preventDefault();
-      engine.moveSelectedUp();
-      return false;
-    };
-  }
-
-  if (down) {
-    down.onclick = function (e) {
-      if (e && e.preventDefault) e.preventDefault();
-      engine.moveSelectedDown();
-      return false;
-    };
-  }
-
   if (download) {
     download.onclick = function (e) {
       if (e && e.preventDefault) e.preventDefault();
-      engine.download('trenchbabii_pfp.png');
+      
+      // Render final image with attribution
+      engine._render(true);
+      
+      // Add subtle attribution watermark
+      var ctx = engine.ctx;
+      var cw = engine.canvas.width;
+      var ch = engine.canvas.height;
+      
+      ctx.save();
+      ctx.globalAlpha = 0.4;
+      ctx.font = 'bold 14px Helvetica, Arial, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'bottom';
+      ctx.fillStyle = '#ffffff';
+      ctx.fillText('@TrenchBabiis', cw - 8, ch - 8);
+      ctx.restore();
+      
+      // Download
+      var filename = 'trenchbabiis_pfp.png';
+      var a = document.createElement('a');
+      a.download = filename;
+
+      if (engine.canvas && engine.canvas.toBlob) {
+        engine.canvas.toBlob(function (blob) {
+          if (!blob) return;
+          var url = URL.createObjectURL(blob);
+          a.href = url;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        }, 'image/png');
+      } else {
+        a.href = engine.canvas.toDataURL('image/png');
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+      
+      engine.requestRender();
       return false;
     };
   }
