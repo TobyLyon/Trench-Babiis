@@ -587,13 +587,17 @@ Blurbs
 Friend Space
 ========================================
 */
+.friends {
+  padding: 0 10px 16px 10px;
+}
+
 .friends header {
   margin-bottom: 6px;
 }
 
-.friends p:nth-of-type(1) {
-  margin-top: 0;
-  margin-left: 0;
+.friends p {
+  text-align: center;
+  margin: 0 0 8px 0;
 }
 
 .focus-highlight {
@@ -603,19 +607,24 @@ Friend Space
 }
 
 .friend-pic-container {
-  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
 }
 
 .friend-pic-container figure {
   margin: 0;
-  float: left;
+  flex: 0 0 auto;
   width: 109px;
-  height: 160px;
 }
 
 .friend-pic-container figcaption {
   text-align: center;
   padding: 4px;
+  font-weight: bold;
+  color: var(--tb-red);
+  text-shadow: 1px 1px 0 #ffffff;
 }
 
 .friend-pic-container img {
@@ -624,8 +633,15 @@ Friend Space
   width: 90px !important;
   height: 90px !important;
   object-fit: contain;
-  border: 2px solid #000000;
+  border: 3px solid #000000;
   background: #ffffff;
+  box-shadow: 2px 2px 0 #000000;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.friend-pic-container img:hover {
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 0 #000000;
 }
 
 .friends-list-link {
@@ -2330,6 +2346,19 @@ font-size: 8pt;
 letter-spacing: 1px;
 color: #000000;
 }
+
+ .tb-sidebar-bio {
+ width: 100%;
+ margin-top: 6px;
+ padding-top: 6px;
+ border-top: 2px dotted var(--tb-red);
+ font-size: 9pt;
+ line-height: 1.25;
+ }
+
+ .tb-sidebar-bio p {
+ margin: 0;
+ }
 
 .tb-topbar {
 background: var(--tb-yellow) !important;
