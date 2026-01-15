@@ -2335,14 +2335,6 @@ overflow: hidden;
 
 .tb-contract-value {
 color: var(--tb-red);
-display: inline-block;
-max-width: 100%;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
-vertical-align: bottom;
-direction: rtl;
-text-align: left;
 }
 
 .tb-copy-contract {
