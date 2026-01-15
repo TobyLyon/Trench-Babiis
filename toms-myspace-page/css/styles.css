@@ -2325,14 +2325,22 @@ gap: 6px;
 
 .tb-contract-label {
 flex: 1 1 auto;
-min-width: 170px;
+min-width: 0;
+max-width: 100%;
 font-weight: bold;
 text-transform: uppercase;
 letter-spacing: 1px;
+overflow: hidden;
 }
 
 .tb-contract-value {
 color: var(--tb-red);
+display: inline-block;
+max-width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+vertical-align: bottom;
 }
 
 .tb-copy-contract {
