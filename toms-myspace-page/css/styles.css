@@ -2341,6 +2341,8 @@ overflow: hidden;
 text-overflow: ellipsis;
 white-space: nowrap;
 vertical-align: bottom;
+direction: rtl;
+text-align: left;
 }
 
 .tb-copy-contract {
